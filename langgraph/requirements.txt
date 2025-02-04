@@ -1,0 +1,4 @@
+langgraph>=0.0.10
+litellm>=1.30.7 
+httpx[socks]
+python-dotenv>=1.0.0
