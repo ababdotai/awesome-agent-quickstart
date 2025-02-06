@@ -6,6 +6,7 @@ This example demonstrates the basic concepts of smolagents including:
 - Creating a code agent
 """
 from smolagents import CodeAgent, DuckDuckGoSearchTool, HfApiModel
+from env import *
 
 model = HfApiModel()
 agent = CodeAgent(tools=[DuckDuckGoSearchTool()], model=model)

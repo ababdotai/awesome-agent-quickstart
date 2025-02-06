@@ -172,4 +172,5 @@ cython_debug/
 
 # Environment variables
 */.env
+env.py
 .cursor

@@ -22,11 +22,13 @@ Ready-to-run templates for:
 
 ```
 awesome-agent-quickstart/
-├── langgraph/                 # LangGraph framework examples
+├── langgraph/                # Framework name
 │   ├── config.py             # Common configurations (model params, API settings&checking)
 │   ├── helloworld.py         # Basic example: Simple conversational agent
 │   ├── requirements.txt      # Dependency management
-│   └── .env.example         # Environment variables template
+│   └── .env.example          # Environment variables template
+│   └── FRAMEWORK_README.md   # The framework's README, latest&raw
+│   └── README.md             # A step by step guide to use the framework
 ```
 
 ## ⚡ Quick Start
