@@ -1,0 +1,3 @@
+smolagents
+smolagents[transformers]
+litellm
