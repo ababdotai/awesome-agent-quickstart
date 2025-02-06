@@ -27,7 +27,7 @@ awesome-agent-quickstart/
 │   ├── helloworld.py         # Basic example: Simple conversational agent
 │   ├── requirements.txt      # Dependency management
 │   └── .env.example          # Environment variables template
-│   └── FRAMEWORK_README.md   # The framework's README, latest&raw
+│   └── INTRODUCTION.md       # The framework's README, latest&raw
 │   └── README.md             # A step by step guide to use the framework
 ```
 
