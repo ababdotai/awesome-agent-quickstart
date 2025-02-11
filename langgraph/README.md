@@ -16,32 +16,30 @@ A minimal example demonstrating how to use LangGraph to create a simple conversa
 
 ## Installation
 
-1. Navigate to the langgraph directory
-2. Install dependencies:
+1. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-
-## Configuration
-
-Set your API key as an environment variable:
+2. Set up environment:
 ```bash
-export OPENAI_API_KEY=your_api_key
+cp .env.example .env
 ```
 
-You can also use other LLM providers by configuring the appropriate environment variables supported by LiteLLM.
+Edit `.env` with your settings:
+```ini
+# LLM Model configurations
+DEFAULT_MODEL=gpt-4o-mini
+DEFAULT_TEMPERATURE=0.7
 
-## Usage
-
-Run the example:
-```bash
-python helloworld.py
+# OpenAI API configurations
+OPENAI_API_KEY=your-api-key-here
+OPENAI_API_BASE=https://api.openai.com/v1  # Optional: custom API endpoint (e.g. for API proxies)
 ```
-
-The script will:
-1. Initialize a simple graph with two nodes
-2. Send a test message asking for a joke
-3. Print the conversation exchange
+3. Expected output:
+```
+User: Tell me a short joke
+Assistant: Why did the scarecrow win an award? Because he was outstanding in his field!
+```
 
 ## Code Structure
 
@@ -66,7 +64,3 @@ The example includes basic error handling:
 - Checks for required environment variables
 - Handles LLM API errors gracefully
 - Maintains state consistency
-
-## License
-
-MIT 
