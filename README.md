@@ -1,17 +1,21 @@
 # awesome-agent-quickstart
-Your fast lane to AI Agent development! This repository helps you bypass setup complexities and dive straight into latest AI Agent frameworks. Go from zero to running your first agent in minutes, whether you're interested in LangGraph, AutoGen, Smolagents, or other popular frameworks.
+
+Your fast lane to AI Agent development! 
+
+This repository helps you bypass setup complexities and dive straight into latest AI Agent frameworks. Go from zero to running your first agent in minutes, whether you're interested in LangGraph, AutoGen, Smolagents, or other popular frameworks.
 
 ## 🎯 Features
 
-- ⚡ Zero configuration needed - start coding in minutes
+- ⚡ Zero configuration needed - get started in minutes
 - 🎓 Learn by example - all examples are runnable
-- 🔄 Model-agnostic - support any LLM (via LiteLLM)
-- 🛠️ Centralized configuration - shared settings across frameworks
+- 🔄 Model-agnostic - support any LLM
+- 🛠️ Centralized configuration - shared settings across framework
 
 ## 🚀 Supported Frameworks
 
 Ready-to-run templates for:
 
+- LangChain
 - LangGraph
 - AutoGen
 - Smolagents
@@ -19,6 +23,8 @@ Ready-to-run templates for:
 - More coming soon...
 
 ## 📁 Project Structure
+
+Each directory is a self-contained example of an agent framework. For example:
 
 ```
 awesome-agent-quickstart/
@@ -30,60 +36,6 @@ awesome-agent-quickstart/
 │   └── INTRODUCTION.md       # The framework's README, latest&raw
 │   └── README.md             # A step by step guide to use the framework
 ```
-
-## ⚡ Quick Start
-
-## ⚙️ Configuration
-
-All examples use common configurations from `config.py`, including:
-- Model parameters (model name, temperature, etc.)
-- API configurations (API key, base URL)
-- Environment variable management (using python-dotenv)
-
-Key configurations:
-- `DEFAULT_MODEL`: Default model to use
-- `DEFAULT_TEMPERATURE`: Model temperature parameter
-- `OPENAI_API_KEY`: API key
-- `OPENAI_API_BASE`: API base URL (if using proxy)
-
-
-### LangGraph
-
-1. Clone and install dependencies:
-```bash
-git clone https://github.com/yourusername/awesome-agent-quickstart.git
-cd awesome-agent-quickstart/langgraph
-pip install -r requirements.txt
-```
-
-2. Configure environment:
-```bash
-cp .env.example .env
-```
-
-Edit `.env` file with your settings:
-```
-# LLM Model configurations
-DEFAULT_MODEL=your-model-name
-DEFAULT_TEMPERATURE=0.7
-
-# OpenAI API configurations
-OPENAI_API_KEY=your-api-key
-OPENAI_API_BASE=your-api-base-url  # Optional: include /v1 if using API proxy
-```
-
-3. Run the helloworld example (how to create a simple conversational agent using LangGraph):
-```bash
-python helloworld.py
-```
-
-## ⚠️ Important Notes
-
-1. Ensure `.env` file is properly configured before running examples
-2. API keys and other sensitive information are added to `.gitignore`
-3. If using a proxy, ensure `OPENAI_API_BASE` includes the complete API path (e.g., `https://your-proxy.com/v1`)
-4. All examples support custom model parameters that can override defaults at runtime
-
 
 ## 🤝 Contributing
 
@@ -121,14 +73,13 @@ MIT License - see [LICENSE](LICENSE)
 ## 🌟 Community
 
 - ⭐ Star us on GitHub
-- 🐛 [Report issues](https://github.com/yourusername/awesome-agent-quickstart/issues)
-- 💬 [Join Discord](https://discord.gg/yourdiscord)
-- 📧 Contact: your.email@example.com
+- 🐛 [Report issues](https://github.com/ababaidotai/awesome-agent-quickstart/issues)
+- 📧 Contact: ababai.ai@outlook.com
 
 ## 🙏 Acknowledgments
 
 Made with ❤️ by the AI community, for the AI community.
 
-- Thanks to all contributors
-- Thanks to the framework development teams
-- Thanks to the AI/ML community
+- Thanks to all contributors!
+- Thanks to the framework development teams!
+- Thanks to the LLM community!
