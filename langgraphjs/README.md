@@ -28,7 +28,11 @@ LANGSMITH_TRACING=true
 
 3. Run your first agent:
 ```bash
+# Run the Anthropic agent
 npm start
+
+# Run the Ollama agent
+npm run start-ollama
 ```
 
 ## 🚀 Available Examples
