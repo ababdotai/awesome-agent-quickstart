@@ -28,11 +28,28 @@ LANGSMITH_TRACING=true
 
 3. Run your first agent:
 ```bash
-# Run the Anthropic agent
+# Run the high-level agent
 npm start
+
+# Run the low-level agent
+npm run start-low
 
 # Run the Ollama agent
 npm run start-ollama
+```
+
+4. Expected output:
+```shell
+> langgraph-quickstart@1.0.0 start—ollama
+> tsx helloworld_ollama.ts
+
+Agent initialized! Let's have a conversation.
+
+User: What's the weather like today?
+Assistant: Today it's sunny with a temperature of 75°F.
+
+User: Is that a good temperature?
+Assistant: A temperature of 75°F is generally considered quite pleasant, neither too hot nor too cold. It’s perfect for outdoor activities!
 ```
 
 ## 🚀 Available Examples

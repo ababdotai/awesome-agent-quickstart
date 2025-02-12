@@ -1,5 +1,5 @@
 /**
- * A minimal example of using LangGraph.js to create a simple ReAct agent.
+ * A minimal example of using LangGraph.js high level API to create a simple ReAct agent.
  * This example demonstrates the basic concepts of LangGraph including:
  * - Creating a stateful agent
  * - Using tools

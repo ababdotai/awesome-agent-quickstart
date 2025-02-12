@@ -5,8 +5,9 @@
   "main": "helloworld.ts",
   "type": "module",
   "scripts": {
-    "start": "tsx helloworld.ts",
-    "start-ollama": "tsx helloworld_ollama.ts"
+    "start": "tsx helloworld_high_level.ts",
+    "start-low": "tsx helloworld_low_level.ts",
+    "start—ollama": "tsx helloworld_ollama.ts"
   },
   "dependencies": {
     "@langchain/anthropic": "^0.3.13",
