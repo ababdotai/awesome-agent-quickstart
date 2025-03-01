@@ -1,0 +1,4 @@
+langgraph>=0.3.2
+langgraph-prebuilt>=0.1.1
+langgraph-swarm>=0.0.4
+langchain-openai>=0.2.14

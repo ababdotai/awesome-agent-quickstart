@@ -35,7 +35,12 @@ DEFAULT_TEMPERATURE=0.7
 OPENAI_API_KEY=your-api-key-here
 OPENAI_API_BASE=https://api.openai.com/v1  # Optional: custom API endpoint (e.g. for API proxies)
 ```
-3. Expected output:
+3. Run the script:
+```bash
+python helloworld.py
+```
+
+4. Expected output:
 ```
 User: Tell me a short joke
 Assistant: Why did the scarecrow win an award? Because he was outstanding in his field!
