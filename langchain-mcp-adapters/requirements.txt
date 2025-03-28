@@ -1,0 +1,5 @@
+socksio
+langchain-mcp-adapters
+langgraph
+langchain-openai
+langchain-anthropic
