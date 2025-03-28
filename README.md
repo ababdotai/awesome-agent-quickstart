@@ -15,12 +15,22 @@ This repository helps you bypass setup complexities and dive straight into lates
 
 Ready-to-run templates for:
 
+### Flow control
 - LangChain
-- LangGraph
-- AutoGen
+- LangGraph (Python&JS)
 - Smolagents
+
+### Role-playing
+- LangGraph-Swarm
+- OpenAI Swarm
+- AutoGen
 - CrewAI
-- More coming soon...
+- OpenAI Agents SDK
+
+### Tools
+- LangChain MCP Adapters
+- Browser-use
+
 
 ## 📁 Project Structure
 
@@ -35,6 +45,15 @@ awesome-agent-quickstart/
 │   └── .env.example          # Environment variables template
 │   └── INTRODUCTION.md       # The framework's README, latest&raw
 │   └── README.md             # A step by step guide to use the framework
+```
+
+## 🐍 Setup
+
+Since some frameworks reply on the latest Python features, we recommend create a virtual environment:
+
+```
+conda create -n agents-quickstart python=3.13
+conda activate agents-quickstart
 ```
 
 ## 🤝 Contributing
