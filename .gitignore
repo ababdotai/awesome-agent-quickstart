@@ -175,3 +175,5 @@ cython_debug/
 */.env
 env.py
 .cursor
+
+.DS_Store
