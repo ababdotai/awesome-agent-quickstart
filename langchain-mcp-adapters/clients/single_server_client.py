@@ -1,6 +1,3 @@
-from dotenv import load_dotenv
-load_dotenv()
-
 import os
 import asyncio
 from mcp import ClientSession, StdioServerParameters
@@ -9,9 +6,7 @@ from mcp.client.stdio import stdio_client
 from langchain_mcp_adapters.tools import load_mcp_tools
 from langgraph.prebuilt import create_react_agent
 from util import get_servers_dir
-
-from langchain_openai import ChatOpenAI
-model = ChatOpenAI(model="gpt-4o")
+from llm import deepseek_model as model
 
 server_params = StdioServerParameters(
     command="python",

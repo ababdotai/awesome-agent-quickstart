@@ -1,14 +1,9 @@
-from dotenv import load_dotenv
-load_dotenv()
-
 import asyncio
 import os
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langgraph.prebuilt import create_react_agent
 from util import get_servers_dir
-
-from langchain_openai import ChatOpenAI
-model = ChatOpenAI(model="gpt-4o")
+from llm import deepseek_model as model
 
 async def run_agent():
     async with MultiServerMCPClient(

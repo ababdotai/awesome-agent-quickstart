@@ -4,7 +4,7 @@ load_dotenv()
 
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("Weather",  port=os.getenv("MCP_SERVER_PORT"), log_level=os.getenv("MCP_SERVER_LOG_LEVEL"))
+mcp = FastMCP("Weather", port=os.getenv("MCP_SERVER_PORT"), log_level=os.getenv("MCP_SERVER_LOG_LEVEL"))
 
 @mcp.tool()
 async def get_weather(location: str) -> str:
