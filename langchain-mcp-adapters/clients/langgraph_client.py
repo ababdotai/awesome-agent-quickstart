@@ -25,6 +25,11 @@ async def make_graph():
                 # Make sure to update to the full absolute path to your math_server.py file
                 "args": [os.path.join(get_servers_dir(), "math_server.py")],
                 "transport": "stdio",
+            },
+            "weather": {
+                # make sure you start your weather server on port 8000
+                "url": f"http://localhost:{os.getenv('MCP_SERVER_PORT')}/sse",
+                "transport": "sse",
             }
         }
     )
@@ -67,6 +72,8 @@ async def make_graph():
 # Run the graph with question
 async def main():
     async with make_graph() as graph:
+        result = await graph.ainvoke({"messages": "what is the weather in nyc?"})
+        print(result)
         result = await graph.ainvoke({"messages": "what's (3 + 5) x 12?"})
         print(result)
 
