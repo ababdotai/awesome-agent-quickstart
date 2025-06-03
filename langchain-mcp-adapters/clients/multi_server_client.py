@@ -6,7 +6,7 @@ from util import get_servers_dir
 from llm import deepseek_model as model
 
 async def run_agent():
-    async with MultiServerMCPClient(
+    client = MultiServerMCPClient(
         {
             "math": {
                 "command": "python",
@@ -16,16 +16,17 @@ async def run_agent():
             },
             "weather": {
                 # make sure you start your weather server on port 8000
-                "url": f"http://localhost:{os.getenv('MCP_SERVER_PORT')}/sse",
-                "transport": "sse",
+                "url": f"http://localhost:{os.getenv('MCP_SERVER_PORT')}/mcp",
+                "transport": "streamable_http",
             }
         }
-    ) as client:
-        agent = create_react_agent(model, client.get_tools())
-        math_response = await agent.ainvoke({"messages": "what's (3 + 5) x 12?"})
-        print(math_response["messages"][-1].content)
-        weather_response = await agent.ainvoke({"messages": "what is the weather in nyc?"})
-        print(weather_response["messages"][-1].content)
+    )
+    tools = await client.get_tools()
+    agent = create_react_agent(model, tools)
+    math_response = await agent.ainvoke({"messages": "what's (3 + 5) x 12?"})
+    print(math_response["messages"][-1].content)
+    weather_response = await agent.ainvoke({"messages": "what is the weather in nyc?"})
+    print(weather_response["messages"][-1].content)
 
 if __name__ == "__main__":
     asyncio.run(run_agent())

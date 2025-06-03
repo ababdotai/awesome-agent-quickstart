@@ -16,7 +16,6 @@ class State(TypedDict):
     messages: Annotated[Sequence[BaseMessage], add_messages]
 
 # Make the graph with MCP context
-@asynccontextmanager
 async def make_graph():
     mcp_client = MultiServerMCPClient(
         {
@@ -28,53 +27,53 @@ async def make_graph():
             },
             "weather": {
                 # make sure you start your weather server on port 8000
-                "url": f"http://localhost:{os.getenv('MCP_SERVER_PORT')}/sse",
-                "transport": "sse",
+                "url": f"http://localhost:{os.getenv('MCP_SERVER_PORT')}/mcp",
+                "transport": "streamable_http",
             }
         }
     )
 
-    def agent(state: State):
+    def call_model(state: State):
         messages = state["messages"]
         response = llm_with_tool.invoke(messages)
         return {"messages": [response]}
 
-    async with mcp_client:
-        mcp_tools = mcp_client.get_tools()
-        print(f"Available tools: {[tool.name for tool in mcp_tools]}")
-        llm_with_tool = model.bind_tools(mcp_tools)
+    mcp_tools = await mcp_client.get_tools()
+    print(f"Available tools: {[tool.name for tool in mcp_tools]}")
+    
+    llm_with_tool = model.bind_tools(mcp_tools)
 
-        # Compile application and test
-        graph_builder = StateGraph(State)
-        graph_builder.add_node(agent)
-        graph_builder.add_node("tool", ToolNode(mcp_tools))
+    # Compile application and test
+    graph_builder = StateGraph(State)
+    graph_builder.add_node(call_model)
+    graph_builder.add_node("tool", ToolNode(mcp_tools))
 
-        graph_builder.add_edge(START, "agent")
+    graph_builder.add_edge(START, "call_model")
 
-        # Decide whether to retrieve
-        graph_builder.add_conditional_edges(
-            "agent",
-            # Assess agent decision
-            tools_condition,
-            {
-                # Translate the condition outputs to nodes in our graph
-                "tools": "tool",
-                END: END,
-            },
-        )
-        graph_builder.add_edge("tool", "agent")
+    # Decide whether to retrieve
+    graph_builder.add_conditional_edges(
+        "call_model",
+        # Assess agent decision
+        tools_condition,
+        {
+            # Translate the condition outputs to nodes in our graph
+            "tools": "tool",
+            END: END,
+        },
+    )
+    graph_builder.add_edge("tool", "call_model")
 
-        graph = graph_builder.compile()
-        graph.name = "Tool Agent"
+    graph = graph_builder.compile()
+    graph.name = "Tool Agent"
 
-        yield graph
+    return graph
 
 # Run the graph with question
 async def main():
-    async with make_graph() as graph:
-        result = await graph.ainvoke({"messages": "what is the weather in nyc?"})
-        print(result)
-        result = await graph.ainvoke({"messages": "what's (3 + 5) x 12?"})
-        print(result)
+    graph = await make_graph()
+    result = await graph.ainvoke({"messages": "what is the weather in nyc?"})
+    print(result["messages"][-1].content)
+    result = await graph.ainvoke({"messages": "what's (3 + 5) x 12?"})
+    print(result["messages"][-1].content)
 
 asyncio.run(main())

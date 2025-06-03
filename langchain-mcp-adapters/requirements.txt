@@ -1,5 +1,5 @@
 socksio
-langchain-mcp-adapters
-langgraph
+langchain-mcp-adapters>=0.1.4
+langgraph>=0.3.21
 langchain-openai
 langchain-anthropic
