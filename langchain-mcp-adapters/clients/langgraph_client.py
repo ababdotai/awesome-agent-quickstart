@@ -33,15 +33,15 @@ async def make_graph():
         }
     )
 
-    def call_model(state: State):
-        messages = state["messages"]
-        response = llm_with_tool.invoke(messages)
-        return {"messages": [response]}
-
     mcp_tools = await mcp_client.get_tools()
     print(f"Available tools: {[tool.name for tool in mcp_tools]}")
     
     llm_with_tool = model.bind_tools(mcp_tools)
+
+    def call_model(state: State):
+        messages = state["messages"]
+        response = llm_with_tool.invoke(messages)
+        return {"messages": [response]}
 
     # Compile application and test
     graph_builder = StateGraph(State)
