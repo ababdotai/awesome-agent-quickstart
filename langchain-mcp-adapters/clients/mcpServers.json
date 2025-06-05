@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "math": {
+      "command": "python",
+      "args": ["$SERVERS_DIR/math_server.py"],
+      "transport": "stdio"
+    },
+    "weather": {
+      "url": "http://localhost:$MCP_SERVER_PORT/mcp",
+      "transport": "streamable_http"
+    }
+  }
+}
