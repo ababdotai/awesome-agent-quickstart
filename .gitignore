@@ -177,3 +177,4 @@ env.py
 .cursor
 
 .DS_Store
+node_modules/

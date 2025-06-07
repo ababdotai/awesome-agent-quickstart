@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@langchain/pyodide-sandbox": "npm:@jsr/langchain__pyodide-sandbox@^0.0.4"
+  }
+}
