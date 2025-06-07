@@ -1,11 +1,16 @@
-# LangChain MCP Adapters
+# LangChain CodeAct
 
-This library provides a lightweight wrapper that makes [Anthropic Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) tools compatible with [LangChain](https://github.com/langchain-ai/langchain) and [LangGraph](https://github.com/langchain-ai/langgraph).
+This library implements the CodeAct architecture in LangGraph. This is the architecture is used by Manus.im. It implements an alternative to JSON function-calling, which enables solving more complex tasks in less steps. This is achieved by making use of the full power of a Turing complete programming language (such as Python used here) to combine and transform the outputs of multiple tools.
 
 ## Features
 
-- 🛠️ Convert MCP tools into [LangChain tools](https://python.langchain.com/docs/concepts/tools/) that can be used with [LangGraph](https://github.com/langchain-ai/langgraph) agents
-- 📦 A client implementation that allows you to connect to multiple MCP servers and load tools from them
+- Message history is saved between turns, to support follow-up questions
+- Python variables are saved between turns, which enables more advanced follow-up questions
+- Use .invoke() to get just the final result, or .stream() to get token-by-token output, see example below
+- You can use any custom tools you wrote, any LangChain tools, or any MCP tools
+- You can use this with any model supported by LangChain (but we've only tested with Claude 3.7 so far)
+- You can bring your own code sandbox, with a simple functional API
+- The system message is customizable
 
 ## Quickstart
 
