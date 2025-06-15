@@ -1,0 +1,7 @@
+agno
+yfinance
+pylance
+lancedb
+tantivy
+openai
+sqlalchemy
