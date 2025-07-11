@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "assistants-demo"
+version = "0.1.0"
+description = "LangGraph assistants demo project"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "dotenv",
+    "ipykernel",
+    "jupyter",
+    "langchain",
+    "langchain-core",
+    "langchain-anthropic",
+    "langchain-community",
+    "langchain-openai",
+    "langchain-tavily",
+    "langgraph",
+    "langgraph-cli[inmem]",
+    "langgraph-sdk",
+    "langgraph-supervisor",
+    "pydantic",
+    "python-dotenv",
+    "typing-extensions",
+    "yfinance",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agents*"]
+
+[tool.setuptools.package-data]
+"*" = ["**/*"] 
